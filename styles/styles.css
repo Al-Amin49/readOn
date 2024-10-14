@@ -57,3 +57,30 @@ body{
     color:var(--secondary-color)
 }
 
+section{
+ padding-top: 20px;
+}
+.text-md{
+    color:var(--secondary-color);
+    text-align: center;
+
+}
+
+/* custome animated line */
+.animated-line {
+    width: 80px; 
+    height: 4px; 
+    background-color: var(--primary-color);
+    margin: 10px auto; 
+    animation: moveLine 2s infinite alternate; 
+    border-radius: 3px;
+}
+
+@keyframes moveLine {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+       transform: translateX(20px);
+    }
+}
