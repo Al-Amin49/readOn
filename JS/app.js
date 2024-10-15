@@ -1,10 +1,13 @@
 
 // Fetch books from API
 const fetchBooks = async () => {
+    loadingSpinner(true)
     const res=await fetch('https://gutendex.com/books');
     const data=await res.json();
     const books=data.results;
     displayBooks(books)
+    // loadin false
+    loadingSpinner(false)
 
 };
 
@@ -41,4 +44,16 @@ function displayBooks(books){
     })
 }
 
+//loading spiner
+const loadingSpinner=(isLoading)=>{
+    const spinner=document.getElementById("loading-spinner");
+    if(isLoading){
+        spinner.classList.remove("hidden");
+    }
+    else{   
+        spinner.classList.add("hidden");
+    }
+    
+
+}
 fetchBooks()
