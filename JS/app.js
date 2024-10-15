@@ -19,7 +19,7 @@ function displayBooks(books){
         bookDiv.innerHTML=`
         <div class="card">
           <img
-            src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg"
+            src="${book.formats["image/jpeg"]}"
             alt="book"
             class="card-image"
           />
