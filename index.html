@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Explorer</title>
-    <link rel="stylesheet" href="styles//styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles//styles.css" />
+  </head>
+  <body>
     <!-- Navbar -->
     <div class="nav-container">
-        <div class="logo-container">
-            <img src="./assets/img/logo.png" alt="">
-            <h2 class="text-large">ReadOn</h2>
-        </div>
-        <nav class="navbar">
-            <li><a href="">Home</a></li>
-            <li><a href="">Wishlist</a></li>
-        </nav>
+      <div class="logo-container">
+        <img src="./assets/img/logo.png" alt="" />
+        <h2 class="text-large">ReadOn</h2>
+      </div>
+      <nav class="navbar">
+        <li><a href="">Home</a></li>
+        <li><a href="">Wishlist</a></li>
+      </nav>
     </div>
 
     <!-- Book List -->
-     <section id="book-list">
+    <section id="book-list">
+      <h2 class="text-md">Book You'll love to read</h2>
+      <div class="animated-line"></div>
 
-        <h2 class="text-md">Book You'll love to read</h2>
-        <div class="animated-line"></div>
-
-        <!-- Book card -->
-         <div class="book-container">
-            <div class="card">
-                <img src="" alt="book" class="card-image">
-                <div class="card-content">
-                    <h4 class="card-title">Poor Dad</h4>
-                    <p class="card-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero, magni.</p>
-                        <a href="">
-                    <button class="btn">Show Details</button>
-                </a>
-        
-                </div>
+      <!-- Book card -->
+      <div id="book-container">
+        <div class="card">
+          <img
+            src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg"
+            alt="book"
+            class="card-image"
+          />
+          <div class="card-content">
+            <div class="title-container">
+              <h4 class="card-title">Poor Dad</h4>
+              <p>Id:1</p>
             </div>
-         </div>
+            <p class="authors-name">
+              Lorem ipsum dolor sit, amet consectetur a.
+            </p>
+            <p class="genre">Genre: book</p>
 
-
-     </section>
+            <a href="">
+              <button class="btn">Show Details</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- JavaScript -->
-     <script src="JS/app.js"></script>
-</body>
+    <script src="JS/app.js"></script>
+  </body>
 </html>
