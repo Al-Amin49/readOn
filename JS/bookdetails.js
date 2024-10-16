@@ -1,3 +1,5 @@
+
+
 //get the book ID from url
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -5,10 +7,12 @@ const bookId = urlParams.get("id");
 
 //load book details data
 const loadBookDetails = async (id) => {
+    loadingSpinner(true)
   const res = await fetch(`https://gutendex.com/books/${id}`);
   const data = await res.json();
   console.log(data);
   displayBookDetails(data)
+  loadingSpinner(false)
 };
 
 const displayBookDetails = (book) => {
@@ -31,5 +35,16 @@ const displayBookDetails = (book) => {
             </div>
     `;
 };
+
+//spinner
+const loadingSpinner=(isLoading)=>{
+    const spinner=document.getElementById("loading-spinner");
+    if(isLoading){
+        spinner.classList.remove("hidden");
+    }
+    else{   
+        spinner.classList.add("hidden");
+    }
+}
 
 loadBookDetails(bookId);

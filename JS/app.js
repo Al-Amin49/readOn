@@ -52,7 +52,7 @@ function displayBooks(books){
 }
 
 //loading spiner
-const loadingSpinner=(isLoading)=>{
+ const loadingSpinner=(isLoading)=>{
     const spinner=document.getElementById("loading-spinner");
     if(isLoading){
         spinner.classList.remove("hidden");
@@ -60,7 +60,5 @@ const loadingSpinner=(isLoading)=>{
     else{   
         spinner.classList.add("hidden");
     }
-    
-
 }
 fetchBooks()
