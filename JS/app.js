@@ -40,7 +40,7 @@ function displayBooks(books){
             </p>
             <p class="genre" ><span style="font-weight:bold;">Genre:</span>${book.subjects.join(', ') || 'N/A'}book</p>
 
-            <a href="" class="btn-container">
+            <a href="bookDetails.html?id=${book.id}" class="btn-container">
               <button class="btn">Show Details</button>
             </a>
           </div>
