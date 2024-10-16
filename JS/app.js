@@ -18,22 +18,29 @@ function displayBooks(books){
         bookDiv.classList.add('card');
         bookDiv.innerHTML=`
         <div class="card">
-          <img
-            src="${book.formats["image/jpeg"]}"
-            alt="book"
-            class="card-image"
-          />
+          <div class="image-container"">
+            <img
+              src="${book.formats["image/jpeg"]}"
+              alt="book"
+              class="card-image"
+            />
+             
+          </div>
           <div class="card-content">
-            <div class="title-container">
-              <h4 class="card-title">${book.title}</h4>
-              <p >Id:${book.id}</p>
-            </div>
-            <p class="authors-name">
-              Lorem ipsum dolor sit, amet consectetur a.
-            </p>
-            <p class="genre">Genre: book</p>
+           
+               <div class="title-container">
+               <h4 class="card-title">${book.title}</h4>
+               <i class="fa-regular fa-heart love-icon" style=" cursor: pointer; color:green;"></i>
 
-            <a href="">
+               </div>
+            
+               <p class="id" ><span style="font-weight:bold;">Id: </span>${book.id}</p>
+            <p class="authors-name">
+              <span style="font-weight:bold;">Authors: </span>${book.authors.map(author=>author.name).join(', ')}
+            </p>
+            <p class="genre" ><span style="font-weight:bold;">Genre:</span>${book.subjects.join(', ') || 'N/A'}book</p>
+
+            <a href="" class="btn-container">
               <button class="btn">Show Details</button>
             </a>
           </div>

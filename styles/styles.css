@@ -125,8 +125,22 @@ section{
     margin-bottom: 5px;
 }
 .card-title{
-    font-size: 20px;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
     font-weight: 600;
+    margin-bottom: 10px;
+}
+.authors-name, .genre, .id{
+    margin-bottom: 4px;
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+.btn-container{
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
 }
 
 /* loading spinner */
