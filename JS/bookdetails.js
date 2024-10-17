@@ -20,13 +20,13 @@ const displayBookDetails = (book) => {
   bookDetails.innerHTML = `
     <div class="book">
                 <div class="first-part">
-                    <h2>${book.title}</h2>
-                    <h2>id :${book.id}</h2>
+                    <h1>${book.title}</h1>
+                    <p><span style="font-weight:bold;">Id: </span> ${book.id}</p>
                 </div>
     
                 <div class="second-part">
-                    <h3>Authors: heloo, kello. jello , kello</h3>
-                    <p>Genre: dkldlfd, dfldkjdlfdl, dflkdjfdlfld, dfdljfldd</p>
+                    <p class=""><span style="font-weight:bold;">Authors: </span> ${book.authors.map(author=>author.name).join(', ')}</p>
+                    <p class="genre-text"><span style="font-weight:bold;">Genre:</span> ${book.subjects.join(', ') || 'N/A'}</p>
                 </div>
             </div>
 

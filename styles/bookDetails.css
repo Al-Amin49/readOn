@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
 }
+:root {
+    --primary-color: #F1592B;
+    --secondary-color: #064532;
+}
 .book-listing{
     background-color: gray;
     box-shadow: rgba(0, 0, 0, 0.6);
@@ -15,6 +19,7 @@
     gap: 20px;
     place-items: center;
     margin-top: 5rem;
+    color:var(--secondary-color);
 }
 .book{
     width: 650px;
