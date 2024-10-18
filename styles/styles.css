@@ -64,6 +64,36 @@ body{
 .text-large{
     color:var(--secondary-color)
 }
+/* Shopping Cart Icon Styles */
+.cart-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+    font-size: 24px;
+    padding: 8px;
+    text-decoration: none;
+}
+/* Cart Count Styles */
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    padding: 2px 4px;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+
 
 section{
  padding-top: 20px;
