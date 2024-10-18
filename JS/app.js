@@ -6,7 +6,14 @@ const fetchBooks = async () => {
     const res=await fetch('https://gutendex.com/books');
     const data=await res.json();
     currentBooks=data.results;
-    displayBooks(currentBooks)
+    //get saved search and filter
+
+    applySavedPreferences()
+
+    if (!localStorage.getItem('searchTerm') && !localStorage.getItem('selectedGenre')) {
+      displayBooks(currentBooks);
+    }
+    
     // loadin false
     loadingSpinner(false)
 
@@ -84,9 +91,8 @@ console.log(searchBtn, 'search');
 
 searchBtn.addEventListener("click", ()=>{
     const searchTerm=document.getElementById("search-input").value.toLowerCase();
-    console.log(searchTerm)
+    localStorage.setItem("searchTerm", searchTerm);
     const filteredBooks=currentBooks.filter(book=>book.title.toLowerCase().includes(searchTerm));
-    console.log(filteredBooks)
     displayBooks(filteredBooks)
 })
 
@@ -95,6 +101,7 @@ searchBtn.addEventListener("click", ()=>{
 const genreFilter=document.getElementById("genre-filter");
 genreFilter.addEventListener("change", ()=>{
     const selectedGenre=genreFilter.value;
+    localStorage.setItem("selectedGenre", selectedGenre);
     if (selectedGenre === "") {
       displayBooks(currentBooks);
   } else {
@@ -104,4 +111,23 @@ genreFilter.addEventListener("change", ()=>{
       displayBooks(filteredBooks);
   }
 })
+
+//apply saved preference from localstorage on page load
+
+const applySavedPreferences=()=>{
+  const savedSearchTerm=localStorage.getItem('searchTerm');
+  const savedGenre=localStorage.getItem('selectedGenre');
+  if(savedSearchTerm){
+    document.getElementById("search-input").value=savedSearchTerm;
+    const filteredBooks=currentBooks.filter(book=>book.title.toLowerCase().includes(savedSearchTerm));
+    displayBooks(filteredBooks);
+  }
+
+  if(savedGenre){
+    genreFilter.value=savedGenre;
+    const filteredBooks=currentBooks.filter(book=>book.subjects.includes(savedGenre));
+    displayBooks(filteredBooks);
+  }
+
+}
 fetchBooks()
