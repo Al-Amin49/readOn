@@ -93,6 +93,44 @@ section{
     }
 }
 
+/* search filter */
+.search-filter-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+  }
+#search-input {
+    padding: 6px;
+    width: 250px;
+    border: 2px solid var(--primary-color);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  #search-button {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  #genre-filter {
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    margin-left: 15px;
+  }
 
 /* card */ 
 #book-container{
@@ -102,6 +140,20 @@ section{
     grid-template-columns: repeat(3,1fr);
     place-items: center;
     gap: 20px;
+}
+.no-found-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Optional: ensure it's tall enough to be visible */
+}
+.no-found-container img{
+    width: 50%;
+}
+.no-books{
+    color: var(--secondary-color);
+    text-align: center;
 }
 .card{
     background-color: #fff;
@@ -135,6 +187,7 @@ section{
     font-weight: 500;
     color: var(--secondary-color);
 }
+
 .btn-container{
   text-decoration: none;
   display: flex;

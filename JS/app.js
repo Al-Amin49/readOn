@@ -1,11 +1,12 @@
 
+let currentBooks=[];
 // Fetch books from API
 const fetchBooks = async () => {
     loadingSpinner(true)
     const res=await fetch('https://gutendex.com/books');
     const data=await res.json();
-    const books=data.results;
-    displayBooks(books)
+    currentBooks=data.results;
+    displayBooks(currentBooks)
     // loadin false
     loadingSpinner(false)
 
@@ -13,6 +14,20 @@ const fetchBooks = async () => {
 
 function displayBooks(books){
     const bookContainer=document.getElementById('book-container');
+    //clear previos books
+    bookContainer.innerHTML='';  
+    //message show if book are not found
+    if(books.length===0){
+      bookContainer.innerHTML=`
+   
+   <div class="no-found-container"> 
+    <h2 class="no-books">No books found. Please try searching again.</h2>
+       <img src="https://shorturl.at/4v2dI" alt="No found image"/>
+   </div>
+  
+      `;
+      return;
+    }
     books.forEach(book=>{
         const bookDiv=document.createElement('div');
         bookDiv.classList.add('card');
@@ -61,4 +76,17 @@ function displayBooks(books){
         spinner.classList.add("hidden");
     }
 }
+
+// search functionality
+
+const searchBtn=document.getElementById("search-button");
+console.log(searchBtn, 'search');
+
+searchBtn.addEventListener("click", ()=>{
+    const searchTerm=document.getElementById("search-input").value.toLowerCase();
+    console.log(searchTerm)
+    const filteredBooks=currentBooks.filter(book=>book.title.toLowerCase().includes(searchTerm));
+    console.log(filteredBooks)
+    displayBooks(filteredBooks)
+})
 fetchBooks()
