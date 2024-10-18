@@ -89,4 +89,19 @@ searchBtn.addEventListener("click", ()=>{
     console.log(filteredBooks)
     displayBooks(filteredBooks)
 })
+
+//genre filter
+
+const genreFilter=document.getElementById("genre-filter");
+genreFilter.addEventListener("change", ()=>{
+    const selectedGenre=genreFilter.value;
+    if (selectedGenre === "") {
+      displayBooks(currentBooks);
+  } else {
+      const filteredBooks = currentBooks.filter(book =>
+          book.subjects.includes(selectedGenre)
+      );
+      displayBooks(filteredBooks);
+  }
+})
 fetchBooks()
