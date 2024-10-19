@@ -130,4 +130,8 @@ const applySavedPreferences=()=>{
   }
 
 }
+
+const handleLoveIconClick=()=>{
+  
+}
 fetchBooks()
