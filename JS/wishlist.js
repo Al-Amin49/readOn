@@ -20,13 +20,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
 
     const fetchListBooks=async()=>{
-
+        loadingSpinner(true);
         const books=[];
         for(let id of wishlist){
             const res=await fetch(`https://gutendex.com/books/${id}`);
             const data=await res.json();
             books.push(data);
             console.log('books', books);
+            loadingSpinner(false);
             displayWishListBooks(books)
         }
     }
@@ -37,15 +38,29 @@ document.addEventListener('DOMContentLoaded', ()=>{
             bookElement.classList.add('book');
             bookElement.innerHTML=`
             <div class="book-info">
+            <img src="${book.formats['image/jpeg']}" alt="">
+              <div>
                 <h3>${book.title}</h3>
                 <p>Id: ${book.id}</p>
+                <button class="remove-btn" onclick="removeBook(${book.id})">&times;</button>
+              </div>
             </div>
-            <img src="${book.formats['image/jpeg']}" alt="">
-            <button class="remove-btn" onclick="removeBook(${book.id})">Remove</button>
+            
+            
             `;
             wishlistContainer.appendChild(bookElement);
         }
 
     }
+    //spinner
+const loadingSpinner=(isLoading)=>{
+    const spinner=document.getElementById("loading-spinner");
+    if(isLoading){
+        spinner.classList.remove("hidden");
+    }
+    else{   
+        spinner.classList.add("hidden");
+    }
+}
     fetchListBooks()
 })
