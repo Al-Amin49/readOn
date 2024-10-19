@@ -150,6 +150,9 @@ const handleLoveIconClick=(icon)=>{
     wishList=wishList.filter(id=>id!==bookId);
     icon.classList.remove('fa-solid');
     icon.classList.add('fa-regular');
+
+    //alert
+      alert('Book removed from wishlist')
   }
   else{
     //add to wishlist
@@ -157,7 +160,8 @@ const handleLoveIconClick=(icon)=>{
     icon.classList.add('fa-solid');
     icon.classList.remove('fa-regular');
    
-
+//alert
+alert('Book added to wishlist')
   }
   console.log(wishList);
   //save the wishlist to localstoreage
