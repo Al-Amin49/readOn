@@ -13,6 +13,10 @@ const fetchBooks = async () => {
     if (!localStorage.getItem('searchTerm') && !localStorage.getItem('selectedGenre')) {
       displayBooks(currentBooks);
     }
+
+    //update the wishlist icons
+    updateWishListIcons();
+    updateCartCount();
     
     // loadin false
     loadingSpinner(false)
@@ -144,12 +148,14 @@ const handleLoveIconClick=(icon)=>{
   if(wishList.includes(bookId)){
     //Remove from wishlist
     wishList=wishList.filter(id=>id!==bookId);
-    icon.classList.remove('filled');
+    icon.classList.remove('fa-solid');
+    icon.classList.add('fa-regular');
   }
   else{
     //add to wishlist
     wishList.push(bookId);
-    icon.classList.add('filled');
+    icon.classList.add('fa-solid');
+    icon.classList.remove('fa-regular');
    
 
   }
@@ -168,6 +174,23 @@ const updateCartCount=()=>{
   const cartCountElement = document.querySelector('.cart-count');
     cartCountElement.textContent = wishList.length;
     console.log(cartCountElement)
-
 }
+
+//update wishlist icons
+const updateWishListIcons = () => {
+  document.querySelectorAll('.love-icon').forEach(icon => {
+    const bookId = icon.getAttribute('data-book-id');
+    if (wishList.includes(bookId)) {
+      // Set to solid heart if the book is in the wishlist
+      icon.classList.add('fa-solid');
+      icon.classList.remove('fa-regular');
+    } else {
+      // Set to regular heart if the book is not in the wishlist
+      icon.classList.add('fa-regular');
+      icon.classList.remove('fa-solid');
+    }
+  });
+};
+
+
 fetchBooks()
