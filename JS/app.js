@@ -153,7 +153,21 @@ const handleLoveIconClick=(icon)=>{
    
 
   }
-  console.log(wishList)
+  console.log(wishList);
+  //save the wishlist to localstoreage
+  localStorage.setItem('wishlist', JSON.stringify(wishList));
+ 
+  //update cart count
+  updateCartCount();
   
+}
+
+//cart count update
+
+const updateCartCount=()=>{
+  const cartCountElement = document.querySelector('.cart-count');
+    cartCountElement.textContent = wishList.length;
+    console.log(cartCountElement)
+
 }
 fetchBooks()
