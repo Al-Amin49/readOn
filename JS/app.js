@@ -52,7 +52,13 @@ function displayBooks(books){
            
                <div class="title-container">
                <h4 class="card-title">${book.title}</h4>
-               <i class="fa-regular fa-heart love-icon" style=" cursor: pointer; color:green;"></i>
+               <i 
+               class="fa-regular fa-heart love-icon" 
+               data-book-id="${book.id}"
+               style=" cursor: pointer; color:green;"
+               onclick="handleLoveIconClick(this)" 
+               >
+               </i>
 
                </div>
             
@@ -130,8 +136,24 @@ const applySavedPreferences=()=>{
   }
 
 }
+// handle whishtlist
+let wishList= JSON.parse(localStorage.getItem('wishlist')) || [];
+const handleLoveIconClick=(icon)=>{
+  const bookId=icon.getAttribute('data-book-id');
+  
+  if(wishList.includes(bookId)){
+    //Remove from wishlist
+    wishList=wishList.filter(id=>id!==bookId);
+    icon.classList.remove('filled');
+  }
+  else{
+    //add to wishlist
+    wishList.push(bookId);
+    icon.classList.add('filled');
+   
 
-const handleLoveIconClick=()=>{
+  }
+  console.log(wishList)
   
 }
 fetchBooks()

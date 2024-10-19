@@ -218,7 +218,9 @@ section{
     font-weight: 500;
     color: var(--secondary-color);
 }
-
+.love-icon.filled {
+    color: red;
+}
 .btn-container{
   text-decoration: none;
   display: flex;
