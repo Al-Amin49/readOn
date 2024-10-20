@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
     if(wishlist.length===0){
         wishlistContainer.innerHTML=`
         <div class="empty-container">
-            <h2>Your wishlist is empty.</h2>
-            <button>Back to Home</button>
+            <h4  >Your wishlist is empty.</h4>
+           <a href="index.html"> <button class="btn" style="margin-top:10px;">Back to Home</button> </a>
         </div>
         `;
         return;
@@ -42,16 +42,31 @@ document.addEventListener('DOMContentLoaded', ()=>{
               <div>
                 <h3>${book.title}</h3>
                 <p>Id: ${book.id}</p>
-                <button class="remove-btn" onclick="removeBook(${book.id})">&times;</button>
+                <button class="remove-btn" >&times;</button>
               </div>
             </div>
             
             
             `;
             wishlistContainer.appendChild(bookElement);
+            const removeButton=bookElement.querySelector('.remove-btn');
+        removeButton.addEventListener('click', ()=>{
+            removeFromWishlist(book.id);
+        })
+
         }
+        
 
     }
+
+const removeFromWishlist=(bookId)=>{
+    console.log(bookId);
+    wishlist=wishlist.filter(id=>id!==bookId);
+    //update wishlist in localstorage
+    localStorage.removeItem('wishlist', JSON.stringify(wishlist));
+    alert('Book Removed Successfully')
+
+}
     //spinner
 const loadingSpinner=(isLoading)=>{
     const spinner=document.getElementById("loading-spinner");
@@ -64,3 +79,4 @@ const loadingSpinner=(isLoading)=>{
 }
     fetchListBooks()
 })
+    const bookElement=document.querySelector(`.book[data-book-id="${bookId}"]`);

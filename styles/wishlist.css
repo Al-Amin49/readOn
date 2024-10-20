@@ -1,29 +1,72 @@
-
-#wishlist-container{
+:root {
+    --primary-color: #F1592B;
+    --secondary-color: #064532;
+    --bg-color: #FBF1E6;
+    --card-bg-color: #ffffff; 
+    --hover-color: #F2A365; 
+}
+.empty-container{
+    text-align: center;
+}
+#wishlist-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    margin: 0 auto;
-    padding: 20px;
 }
-.wishlist-head{
-    text-align: center;
-    padding: 20px;
-}
-#wishllist-container img{
-    width: 190px;
-    height: 200px;
-    margin-bottom: 50px;
-}
-.book{
 
-    width: fit-content;
+.wishlist-head {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.book {
+    /* Updated styling for the wishlist card */
+    background-color: var(--card-bg-color); 
+    border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     padding: 20px;
+    margin: 20px; 
+    transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.book:hover {
+    
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+    background-color: var(--hover-color); 
+}
+
+.book-info {
+    display: flex;
+    justify-content: space-between; /* Better alignment */
+    align-items: center;
+    gap: 20px; /* Added gap for spacing between image and text */
+}
+
+img {
+    width: 150px; /* Reduced image size for a better fit */
+    height: 200px;
+    border-radius: 5px; /* Rounded corners for the image */
     margin-bottom: 20px;
 }
-.book-info{
-    display: flex;
-    justify-content: space-evenly;
+
+.remove-btn {
+    /* Styling for the remove button */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 30px; /* Center text vertically */
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: darkred; /* Color change on hover */
 }
