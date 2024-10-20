@@ -254,6 +254,15 @@ section{
     display: none;
 }
 
+.pagination-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+#prev-button, #next-button{
+    margin: 0 10px;
+}
 /* responsive  with media query*/
 
 @media screen and (max-width: 992px) {

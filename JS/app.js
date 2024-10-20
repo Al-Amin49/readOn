@@ -196,5 +196,9 @@ const updateWishListIcons = () => {
   });
 };
 
+//function to update paginatio controls
+
+
+
 
 fetchBooks()
