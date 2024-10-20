@@ -1,4 +1,6 @@
 
+let currentPage=1;
+let totalPages=0;
 let currentBooks=[];
 // Fetch books from API
 const fetchBooks = async () => {
@@ -6,6 +8,7 @@ const fetchBooks = async () => {
     const res=await fetch('https://gutendex.com/books');
     const data=await res.json();
     currentBooks=data.results;
+    
     //get saved search and filter
 
     applySavedPreferences()
@@ -198,6 +201,18 @@ const updateWishListIcons = () => {
 
 //function to update paginatio controls
 
+const updatePaginationControls=(page)=>{
+const prevButton=document.getElementById('prev-button');
+  const nextButton=document.getElementById('next-button');
+  const pageNumber= document.getElementById('page-number');
+
+  //update the current page number
+  pageNumber.textContent=`Page ${page}`
+
+  //disable page
+  prevButton.disabled=page===1;
+  nextButton.disabled=page===totalPages;
+}
 
 
 
