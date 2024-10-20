@@ -87,6 +87,7 @@ function displayBooks(books){
         
         `
         bookContainer.appendChild(bookDiv);
+        
     })
 }
 
