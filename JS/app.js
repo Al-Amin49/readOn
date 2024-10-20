@@ -3,11 +3,13 @@ let currentPage=1;
 let totalPages=0;
 let currentBooks=[];
 // Fetch books from API
-const fetchBooks = async () => {
+const fetchBooks = async (page=1) => {
     loadingSpinner(true)
-    const res=await fetch('https://gutendex.com/books');
+    const res=await fetch(`https://gutendex.com/books/?page=${page}`);
     const data=await res.json();
     currentBooks=data.results;
+    totalPages=Math.ceil(data.count/data.results.length);
+    console.log('total pages', totalPages)
     
     //get saved search and filter
 
@@ -17,6 +19,8 @@ const fetchBooks = async () => {
       displayBooks(currentBooks);
     }
 
+    //update pagination controls
+    updatePaginationControls(page)
     //update the wishlist icons
     updateWishListIcons();
     updateCartCount();
@@ -213,6 +217,24 @@ const prevButton=document.getElementById('prev-button');
   prevButton.disabled=page===1;
   nextButton.disabled=page===totalPages;
 }
+
+//event listener for pagination buttons
+
+const prevButton=document.getElementById('prev-button');
+prevButton.addEventListener('click', ()=>{
+ if(currentPage>1){
+  currentPage--;
+  fetchBooks(currentPage)
+ }
+})
+
+const nextButton=document.getElementById('next-button');
+nextButton.addEventListener('click', ()=>{
+  if(currentPage <totalPages){
+    currentPage++;
+  fetchBooks(currentPage)
+  }
+})
 
 
 
